@@ -26,9 +26,12 @@ public class UIMAAnalyzersUtils {
     ResourceSpecifier specifier = UIMAFramework.getXMLParser().parseResourceSpecifier(
             in);
     AnalysisEngine ae = UIMAFramework.produceAnalysisEngine(specifier);
+//    AEProvider aeProvider = AEProviderFactory.getInstance().getAEProvider("", descriptorPath, new HashMap<String, Object>());
+//    AnalysisEngine ae = aeProvider.getAE();
     CAS cas = ae.newCAS();
     cas.setDocumentText(IOUtils.toString(input));
     ae.process(cas);
+    ae.destroy();
     return cas;
   }
 }

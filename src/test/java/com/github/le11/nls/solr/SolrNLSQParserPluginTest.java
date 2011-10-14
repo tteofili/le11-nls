@@ -44,4 +44,5 @@ public class SolrNLSQParserPluginTest {
       fail(e.getLocalizedMessage());
     }
   }
+
 }

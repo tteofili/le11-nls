@@ -12,6 +12,8 @@ import org.apache.solr.search.QParser;
 import org.apache.uima.cas.CAS;
 
 import java.io.StringReader;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * derived from edismax
@@ -28,14 +30,14 @@ import java.io.StringReader;
  */
 public class SolrNLSQParserPlugin extends DisMaxQParserPlugin {
 
+  private Map<String, String> cache = new HashMap<String, String>();
+
   @Override
   public QParser createParser(String qstr, SolrParams localParams, SolrParams params, SolrQueryRequest req) {
     return new NLSQParser(qstr, localParams, params, req);
   }
 
   class NLSQParser extends DisMaxQParser {
-
-    private CAS cas;
 
     /**
      * Constructor for the QParser
@@ -51,23 +53,28 @@ public class SolrNLSQParserPlugin extends DisMaxQParserPlugin {
 
     @Override
     public Query parse() throws ParseException {
-      // analyze the query
-      try {
+      String explicitNLSQuery = cache.get(qstr);
+      if (explicitNLSQuery == null) {
+        CAS cas;
+        // analyze the query
+        try {
 //        cas = UIMAAnalyzersUtils.analyzeInput(new StringReader(qstr), String.valueOf(localParams.get("descriptor")));
-        cas = UIMAAnalyzersUtils.analyzeInput(new StringReader(qstr), "/NLSSearchAggregateAnnotator.xml");
-      } catch (Exception e) {
-        e.printStackTrace();
-        return super.parse();
-      }
+          cas = UIMAAnalyzersUtils.analyzeInput(new StringReader(qstr), "/NLSSearchAggregateAnnotator.xml");
+        } catch (Exception e) {
+          e.printStackTrace();
+          return super.parse();
+        }
 
-      NLSQueryAnalyzer nlsQueryAnalyzer = new NLSQueryAnalyzer(cas, qstr);
-      if (nlsQueryAnalyzer.isNLSQuery()) {
-        String explicitNLSQuery = new NLSQueryTranslator().createNLSExplicitQueryString(qstr, nlsQueryAnalyzer);
+        NLSQueryAnalyzer nlsQueryAnalyzer = new NLSQueryAnalyzer(cas, qstr);
+        if (nlsQueryAnalyzer.isNLSQuery()) {
+          explicitNLSQuery = new NLSQueryTranslator().createNLSExplicitQueryString(qstr, nlsQueryAnalyzer);
+          cache.put(qstr, explicitNLSQuery);
+          return new LuceneQParserPlugin().createParser(explicitNLSQuery, localParams, params, req).parse();
+        } else {
+          return super.parse();
+        }
+      } else
         return new LuceneQParserPlugin().createParser(explicitNLSQuery, localParams, params, req).parse();
-      } else {
-        return super.parse();
-      }
-
 
     }
   }

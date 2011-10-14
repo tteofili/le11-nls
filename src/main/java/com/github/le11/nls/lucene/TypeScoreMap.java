@@ -42,6 +42,7 @@ public class TypeScoreMap {
     this.typeMapping.put("cc", 1f); // or, and
     this.typeMapping.put("vbg", 1f); // accepting, following
     this.typeMapping.put("np", 5f); // Madrid, England
+    this.typeMapping.put("NNP", 5f); // Madrid, England
     this.typeMapping.put(":", 1f); // :
     this.typeMapping.put("od", 1f); // first
     this.typeMapping.put("vbd", 1f); // jumped, claimed, chose

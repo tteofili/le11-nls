@@ -29,10 +29,10 @@
           <groupId>org.apache.solr</groupId>
           <artifactId>solr-uima-an-alchemy</artifactId>
         </exclusion>
-        <!--<exclusion>-->
-        <!--<groupId>org.apache.solr</groupId>-->
-        <!--<artifactId>solr-uima-an-calais</artifactId>-->
-        <!--</exclusion>-->
+        <exclusion>
+          <groupId>org.apache.solr</groupId>
+          <artifactId>solr-uima-an-calais</artifactId>
+        </exclusion>
         <exclusion>
           <groupId>org.apache.solr</groupId>
           <artifactId>solr-uima-an-wst</artifactId>
@@ -46,7 +46,6 @@
           <artifactId>uimaj-core</artifactId>
         </exclusion>
       </exclusions>
-      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.apache.lucene</groupId>

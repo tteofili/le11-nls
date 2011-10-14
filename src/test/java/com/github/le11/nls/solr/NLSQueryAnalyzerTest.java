@@ -19,7 +19,7 @@ public class NLSQueryAnalyzerTest {
   public void testBoostExpansion() {
     try {
       String qstr = "people working at Google Amsterdam office";
-      CAS cas = UIMAAnalyzersUtils.analyzeInput(new StringReader(qstr), "/HmmTaggerAggregate.xml");
+      CAS cas = UIMAAnalyzersUtils.analyzeInput(new StringReader(qstr), "/OpenNlpTextAnalyzer.xml");
       NLSQueryAnalyzer nlsQueryAnalyzer = new NLSQueryAnalyzer(cas, qstr);
       String expandedQuery = nlsQueryAnalyzer.expandBoosts();
       assertNotNull(expandedQuery);

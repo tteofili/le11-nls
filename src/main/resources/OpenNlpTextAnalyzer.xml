@@ -32,9 +32,9 @@
       <import location="Tokenizer.xml"/>
     </delegateAnalysisEngine>
 
-    <delegateAnalysisEngine key="DateFinder">
-      <import location="DateNameFinder.xml"/>
-    </delegateAnalysisEngine>
+    <!--<delegateAnalysisEngine key="DateFinder">-->
+    <!--<import location="DateNameFinder.xml"/>-->
+    <!--</delegateAnalysisEngine>-->
 
     <delegateAnalysisEngine key="PersonFinder">
       <import location="PersonNameFinder.xml"/>
@@ -44,21 +44,21 @@
       <import location="OrganizationNameFinder.xml"/>
     </delegateAnalysisEngine>
 
-    <delegateAnalysisEngine key="MoneyFinder">
-      <import location="MoneyNameFinder.xml"/>
-    </delegateAnalysisEngine>
+    <!--<delegateAnalysisEngine key="MoneyFinder">-->
+    <!--<import location="MoneyNameFinder.xml"/>-->
+    <!--</delegateAnalysisEngine>-->
 
     <delegateAnalysisEngine key="LocationFinder">
       <import location="LocationNameFinder.xml"/>
     </delegateAnalysisEngine>
 
-    <delegateAnalysisEngine key="PercentageFinder">
-      <import location="PercentageNameFinder.xml"/>
-    </delegateAnalysisEngine>
+    <!--<delegateAnalysisEngine key="PercentageFinder">-->
+    <!--<import location="PercentageNameFinder.xml"/>-->
+    <!--</delegateAnalysisEngine>-->
 
-    <delegateAnalysisEngine key="TimeFinder">
-      <import location="TimeNameFinder.xml"/>
-    </delegateAnalysisEngine>
+    <!--<delegateAnalysisEngine key="TimeFinder">-->
+    <!--<import location="TimeNameFinder.xml"/>-->
+    <!--</delegateAnalysisEngine>-->
 
     <delegateAnalysisEngine key="PosTagger">
       <import location="PosTagger.xml"/>
@@ -83,11 +83,11 @@
         <node>Tokenizer</node>
         <node>PersonFinder</node>
         <node>OrganizationFinder</node>
-        <node>MoneyFinder</node>
-        <node>DateFinder</node>
+        <!--<node>MoneyFinder</node>-->
+        <!--<node>DateFinder</node>-->
         <node>LocationFinder</node>
-        <node>PercentageFinder</node>
-        <node>TimeFinder</node>
+        <!--<node>PercentageFinder</node>-->
+        <!--<node>TimeFinder</node>-->
         <node>PosTagger</node>
         <node>Chunker</node>
       </fixedFlow>
@@ -103,7 +103,7 @@
     </capabilities>
     <operationalProperties>
       <modifiesCas>true</modifiesCas>
-      <multipleDeploymentAllowed>false</multipleDeploymentAllowed>
+      <multipleDeploymentAllowed>true</multipleDeploymentAllowed>
       <outputsNewCASes>false</outputsNewCASes>
     </operationalProperties>
   </analysisEngineMetaData>

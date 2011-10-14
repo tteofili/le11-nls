@@ -51,18 +51,22 @@ public class NLSQueryAnalyzer {
   public String[] extractConcepts() {
     Collection<String> concepts = new HashSet<String>();
     Type conceptsType = cas.getTypeSystem().getType("org.apache.uima.alchemy.ts.concept.ConceptFS");
-    FSIterator<FeatureStructure> conceptsIterator = cas.getIndexRepository().getAllIndexedFS(conceptsType);
-    while (conceptsIterator.hasNext()) {
-      FeatureStructure fs = conceptsIterator.next();
-      concepts.add(fs.getStringValue(conceptsType.getFeatureByBaseName("text")));
-    }
-    Type keywordsType = cas.getTypeSystem().getType("org.apache.uima.alchemy.ts.keywords.KeywordFS");
-    FSIterator<FeatureStructure> keywordsIterator = cas.getIndexRepository().getAllIndexedFS(keywordsType);
-    while (keywordsIterator.hasNext()) {
-      FeatureStructure fs = keywordsIterator.next();
-      concepts.add(fs.getStringValue(keywordsType.getFeatureByBaseName("text")));
+    if (conceptsType != null) {
+      FSIterator<FeatureStructure> conceptsIterator = cas.getIndexRepository().getAllIndexedFS(conceptsType);
+      while (conceptsIterator.hasNext()) {
+        FeatureStructure fs = conceptsIterator.next();
+        concepts.add(fs.getStringValue(conceptsType.getFeatureByBaseName("text")));
+      }
     }
 
+    Type keywordsType = cas.getTypeSystem().getType("org.apache.uima.alchemy.ts.keywords.KeywordFS");
+    if (keywordsType != null) {
+      FSIterator<FeatureStructure> keywordsIterator = cas.getIndexRepository().getAllIndexedFS(keywordsType);
+      while (keywordsIterator.hasNext()) {
+        FeatureStructure fs = keywordsIterator.next();
+        concepts.add(fs.getStringValue(keywordsType.getFeatureByBaseName("text")));
+      }
+    }
     String[] a = new String[concepts.size()];
     return concepts.toArray(a);
   }
@@ -110,13 +114,13 @@ public class NLSQueryAnalyzer {
   }
 
   public String expandBoosts() {
-    Type type = cas.getTypeSystem().getType("org.apache.uima.TokenAnnotation");
+    Type type = cas.getTypeSystem().getType("opennlp.uima.Token");
     FSIterator<AnnotationFS> annotationFSFSIterator = cas.getAnnotationIndex(type).iterator();
     StringBuilder boostedQueryBuilder = new StringBuilder();
     while (annotationFSFSIterator.hasNext()) {
       AnnotationFS a = annotationFSFSIterator.next();
       String word = a.getCoveredText();
-      Feature posTag = type.getFeatureByBaseName("posTag");
+      Feature posTag = type.getFeatureByBaseName("pos");
       String stringValue = a.getStringValue(posTag);
       Float boost = scoreMap.getScore(stringValue);
       boostedQueryBuilder.append(word);
