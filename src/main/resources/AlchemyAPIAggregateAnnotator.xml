@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
+  <frameworkImplementation>org.apache.uima.java
+  </frameworkImplementation>
+  <primitive>false</primitive>
+  <delegateAnalysisEngineSpecifiers>
+    <delegateAnalysisEngine key="TextRankedEntityExtractionAEDescriptor">
+      <import location="TextRankedEntityExtractionAEDescriptor.xml"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="TextConceptTaggingAEDescriptor">
+      <import location="TextConceptTaggingAEDescriptor.xml"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="TextSentimentAnalysisAEDescriptor">
+      <import location="TextSentimentAnalysisAEDescriptor.xml"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="TextKeywordExtractionAEDescriptor">
+      <import location="TextKeywordExtractionAEDescriptor.xml"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="TextCategorizationAEDescriptor">
+      <import location="TextCategorizationAEDescriptor.xml"/>
+    </delegateAnalysisEngine>
+  </delegateAnalysisEngineSpecifiers>
+  <analysisEngineMetaData>
+    <name>AlchemyAPIAggregateAnnotator</name>
+    <description></description>
+    <version>1.0</version>
+    <vendor></vendor>
+    <configurationParameters searchStrategy="none"/>
+    <configurationParameterSettings/>
+    <flowConstraints>
+      <fixedFlow>
+        <node>TextCategorizationAEDescriptor</node>
+        <node>TextConceptTaggingAEDescriptor</node>
+        <node>TextKeywordExtractionAEDescriptor</node>
+        <node>TextRankedEntityExtractionAEDescriptor</node>
+        <node>TextSentimentAnalysisAEDescriptor</node>
+      </fixedFlow>
+    </flowConstraints>
+    <fsIndexCollection/>
+    <capabilities>
+      <capability>
+        <inputs/>
+        <outputs/>
+        <languagesSupported/>
+      </capability>
+    </capabilities>
+    <operationalProperties>
+      <modifiesCas>true</modifiesCas>
+      <multipleDeploymentAllowed>true</multipleDeploymentAllowed>
+      <outputsNewCASes>false</outputsNewCASes>
+    </operationalProperties>
+  </analysisEngineMetaData>
+  <resourceManagerConfiguration/>
+</analysisEngineDescription>

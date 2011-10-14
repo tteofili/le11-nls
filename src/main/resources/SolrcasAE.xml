@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
+  <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
+  <primitive>true</primitive>
+  <annotatorImplementationName>com.github.sedtum.uima.casconsumer.EmbeddedSolrcas</annotatorImplementationName>
+  <processingResourceMetaData>
+    <name>SolrcasAE</name>
+    <description/>
+    <version>0.1</version>
+    <vendor>ASF</vendor>
+    <configurationParameters>
+      <configurationParameter>
+        <name>mappingFile</name>
+        <description>path to the mapping file</description>
+        <type>String</type>
+        <multiValued>false</multiValued>
+        <mandatory>true</mandatory>
+      </configurationParameter>
+      <configurationParameter>
+        <name>solrInstanceType</name>
+        <description>type of Solr instance, one of http or embedded</description>
+        <type>String</type>
+        <multiValued>false</multiValued>
+        <mandatory>true</mandatory>
+      </configurationParameter>
+      <configurationParameter>
+        <name>solrPath</name>
+        <description>If the Solr instance is of HTTP type this represents the URL otherwise this is
+          the Solr home directory</description>
+        <type>String</type>
+        <multiValued>false</multiValued>
+        <mandatory>true</mandatory>
+      </configurationParameter>
+      <configurationParameter>
+        <name>autoCommit</name>
+        <description>true if Solr autocommit is enabled</description>
+        <type>Boolean</type>
+        <multiValued>false</multiValued>
+        <mandatory>true</mandatory>
+      </configurationParameter>
+    </configurationParameters>
+    <configurationParameterSettings>
+      <nameValuePair>
+        <name>mappingFile</name>
+        <value>
+          <string>src/main/resources/solrcas/solrmapping.xml</string>
+        </value>
+      </nameValuePair>
+      <nameValuePair>
+        <name>solrInstanceType</name>
+        <value>
+          <string>embedded</string>
+        </value>
+      </nameValuePair>
+      <nameValuePair>
+        <name>solrPath</name>
+        <value>
+          <string>classpath:/solrcas/</string>
+        </value>
+      </nameValuePair>
+      <nameValuePair>
+        <name>autoCommit</name>
+        <value>
+          <boolean>false</boolean>
+        </value>
+      </nameValuePair>
+    </configurationParameterSettings>
+    <typeSystemDescription/>
+    <typePriorities/>
+    <fsIndexCollection/>
+    <capabilities>
+      <capability>
+        <inputs/>
+        <outputs/>
+        <languagesSupported/>
+      </capability>
+    </capabilities>
+    <operationalProperties>
+      <modifiesCas>false</modifiesCas>
+      <multipleDeploymentAllowed>true</multipleDeploymentAllowed>
+      <outputsNewCASes>false</outputsNewCASes>
+    </operationalProperties>
+  </processingResourceMetaData>
+</analysisEngineDescription>
