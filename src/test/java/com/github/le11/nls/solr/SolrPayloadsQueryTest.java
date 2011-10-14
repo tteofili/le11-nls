@@ -27,7 +27,7 @@ public class SolrPayloadsQueryTest {
       testHarness.validateAddDoc("id", "1", "title", "this is a solr document title", "text_uima", "I'm Tommaso and I live in Rome");
       testHarness.validateAddDoc("id", "2", "title", "another solr title", "text_uima", "I'm a guy living in Rome");
       testHarness.validateUpdate("<commit/>");
-      LocalSolrQueryRequest request = testHarness.getRequestFactory("plq", 0, 10).makeRequest("q","solr new york","debugQuery","true");
+      LocalSolrQueryRequest request = testHarness.getRequestFactory("plq", 0, 10).makeRequest("q", "solr new york", "debugQuery", "true");
       String response = testHarness.query("plq", request);
       assertTrue(response != null);
       System.out.println(response);
