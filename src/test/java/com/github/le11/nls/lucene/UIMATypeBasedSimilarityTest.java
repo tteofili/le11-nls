@@ -1,7 +1,7 @@
 package com.github.le11.nls.lucene;
 
-import com.github.sedtum.lucene.payloads.UIMAPayloadsAnalyzer;
-import com.github.sedtum.lucene.payloads.UIMATypeBasedSimilarity;
+import com.github.le11.nls.lucene.payloads.UIMAPayloadsAnalyzer;
+import com.github.le11.nls.lucene.payloads.UIMATypeBasedSimilarity;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
