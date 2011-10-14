@@ -1539,8 +1539,8 @@
   <!--
      <queryParser name="myparser" class="com.mycompany.MyQParserPlugin"/>
     -->
-  <queryParser name="plq" class="com.github.sedtum.solr.PayloadDisMaxQParserPlugin"/>
-  <queryParser name="nls" class="com.github.sedtum.solr.SolrNLSQParserPlugin"/>
+  <queryParser name="plq" class="com.github.le11.nls.solr.PayloadDisMaxQParserPlugin"/>
+  <queryParser name="nls" class="com.github.le11.nls.solr.SolrNLSQParserPlugin"/>
   <!-- Function Parsers
 
        http://wiki.apache.org/solr/FunctionQuery

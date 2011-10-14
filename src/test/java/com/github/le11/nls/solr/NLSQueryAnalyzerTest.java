@@ -5,6 +5,8 @@ import org.apache.uima.cas.CAS;
 import org.junit.Test;
 
 import java.io.StringReader;
+import java.util.Collection;
+import java.util.Map;
 
 import static org.junit.Assert.*;
 
@@ -27,4 +29,26 @@ public class NLSQueryAnalyzerTest {
       fail(e.getLocalizedMessage());
     }
   }
+
+  @Test
+  public void testEntitiesExtraction() {
+    try {
+      String qstr = "was Albert Einstein living in Paris ?";
+      CAS cas = UIMAAnalyzersUtils.analyzeInput(new StringReader(qstr), "/OpenNlpTextAnalyzer.xml");
+      NLSQueryAnalyzer nlsQueryAnalyzer = new NLSQueryAnalyzer(cas, qstr);
+      Map<String, Collection<String>> entitiesMap = nlsQueryAnalyzer.extractEntities();
+      assertNotNull(entitiesMap);
+      assertTrue(!entitiesMap.isEmpty());
+      for (String k : entitiesMap.keySet()) {
+        for (String en : entitiesMap.get(k)) {
+          System.out.println(k + " : " + en);
+        }
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
+      fail(e.getLocalizedMessage());
+    }
+  }
+
+
 }

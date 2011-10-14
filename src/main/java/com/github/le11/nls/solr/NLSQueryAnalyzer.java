@@ -3,6 +3,7 @@ package com.github.le11.nls.solr;
 import com.github.le11.nls.lucene.TypeScoreMap;
 import org.apache.uima.cas.*;
 import org.apache.uima.cas.text.AnnotationFS;
+import org.apache.uima.cas.text.AnnotationIndex;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -19,6 +20,8 @@ public class NLSQueryAnalyzer {
   private CAS cas;
   private String qstring;
   TypeScoreMap scoreMap;
+  private final String[] entitiesFSTypes = new String[]{"org.apache.uima.alchemy.ts.entity.BaseEntity"};
+  private final String[] entitiesAnnTypes = new String[]{"opennlp.uima.Person", "opennlp.uima.Location"};
 
   public NLSQueryAnalyzer(CAS cas, String qstring) {
     this.cas = cas;
@@ -66,19 +69,41 @@ public class NLSQueryAnalyzer {
 
   public Map<String, Collection<String>> extractEntities() {
     Map<String, Collection<String>> entitiesMap = new HashMap<String, Collection<String>>();
-    Type entitiesType = cas.getTypeSystem().getType("org.apache.uima.alchemy.ts.entity.BaseEntity");
-    FSIterator<FeatureStructure> featureStructureFSIterator = cas.getIndexRepository().getAllIndexedFS(entitiesType);
-    while (featureStructureFSIterator.hasNext()) {
-      FeatureStructure fs = featureStructureFSIterator.next();
-      String entityTypeName = fs.getType().getName();
-      Collection<String> existingTypedEntitiesValues = entitiesMap.get(entityTypeName);
-      String value = fs.getStringValue(entitiesType.getFeatureByBaseName("text"));
-      if (existingTypedEntitiesValues != null) {
-        existingTypedEntitiesValues.add(value);
-      } else {
-        existingTypedEntitiesValues = new HashSet<String>();
-        existingTypedEntitiesValues.add(value);
-        entitiesMap.put(entityTypeName, existingTypedEntitiesValues);
+    for (String stringType : entitiesFSTypes) {
+      Type entitiesType = cas.getTypeSystem().getType(stringType);
+
+      if (entitiesType != null) {
+        FSIterator<FeatureStructure> featureStructureFSIterator = cas.getIndexRepository().getAllIndexedFS(entitiesType);
+        while (featureStructureFSIterator.hasNext()) {
+          FeatureStructure fs = featureStructureFSIterator.next();
+          String entityTypeName = fs.getType().getName();
+          Collection<String> existingTypedEntitiesValues = entitiesMap.get(entityTypeName);
+          String value = fs.getStringValue(entitiesType.getFeatureByBaseName("text"));
+          if (existingTypedEntitiesValues != null) {
+            existingTypedEntitiesValues.add(value);
+          } else {
+            existingTypedEntitiesValues = new HashSet<String>();
+            existingTypedEntitiesValues.add(value);
+            entitiesMap.put(entityTypeName, existingTypedEntitiesValues);
+          }
+        }
+      }
+    }
+    for (String stringType : entitiesAnnTypes) {
+      Type entitiesType = cas.getTypeSystem().getType(stringType);
+
+      AnnotationIndex<AnnotationFS> annotationIndex = cas.getAnnotationIndex(entitiesType);
+      for (AnnotationFS fs : annotationIndex) {
+        String entityTypeName = fs.getType().getName();
+        Collection<String> existingTypedEntitiesValues = entitiesMap.get(entityTypeName);
+        String value = fs.getCoveredText();
+        if (existingTypedEntitiesValues != null) {
+          existingTypedEntitiesValues.add(value);
+        } else {
+          existingTypedEntitiesValues = new HashSet<String>();
+          existingTypedEntitiesValues.add(value);
+          entitiesMap.put(entityTypeName.substring(entityTypeName.lastIndexOf(".") + 1), existingTypedEntitiesValues);
+        }
       }
     }
     return entitiesMap;

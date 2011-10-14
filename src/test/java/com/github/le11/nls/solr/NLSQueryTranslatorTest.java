@@ -14,7 +14,7 @@ public class NLSQueryTranslatorTest {
 
   @Test
   public void testTranslation() {
-    String[] testQueries = new String[]{"articles about science", "people working at CNR", "the history of A.Einstein",
+    String[] testQueries = new String[]{"articles about science", "people working at CNR", "the history of Albert Einstein",
             "back to the future"};
     try {
       NLSQueryTranslator nlsQueryTranslator = new NLSQueryTranslator();
@@ -27,7 +27,7 @@ public class NLSQueryTranslatorTest {
         System.out.println(explicitNLSQuery);
         assertNotNull("returning a null query is wrong", explicitNLSQuery);
         String[] clauses = explicitNLSQuery.split(" \\(");
-        assertTrue(clauses.length == 3);
+        assertTrue(clauses.length == 2);
       }
     } catch (Exception e) {
       fail(e.getLocalizedMessage());
