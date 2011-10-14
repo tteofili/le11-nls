@@ -1,4 +1,4 @@
-package com.github.sedtum.lucene;
+package com.github.le11.nls.lucene;
 
 /**
  * Licensed to the Apache Software Foundation (ASF) under one or more

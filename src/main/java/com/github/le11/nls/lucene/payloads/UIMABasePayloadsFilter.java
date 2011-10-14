@@ -1,4 +1,4 @@
-package com.github.sedtum.lucene.payloads;
+package com.github.le11.nls.lucene.payloads;
 
 import org.apache.lucene.analysis.TokenFilter;
 import org.apache.lucene.analysis.TokenStream;

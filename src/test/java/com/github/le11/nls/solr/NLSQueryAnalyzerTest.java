@@ -1,6 +1,6 @@
-package com.github.sedtum.solr;
+package com.github.le11.nls.solr;
 
-import com.github.sedtum.lucene.UIMAAnalyzersUtils;
+import com.github.le11.nls.lucene.UIMAAnalyzersUtils;
 import org.apache.uima.cas.CAS;
 import org.junit.Test;
 

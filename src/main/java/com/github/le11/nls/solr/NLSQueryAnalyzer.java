@@ -1,6 +1,6 @@
-package com.github.sedtum.solr;
+package com.github.le11.nls.solr;
 
-import com.github.sedtum.lucene.TypeScoreMap;
+import com.github.le11.nls.lucene.TypeScoreMap;
 import org.apache.uima.cas.*;
 import org.apache.uima.cas.text.AnnotationFS;
 

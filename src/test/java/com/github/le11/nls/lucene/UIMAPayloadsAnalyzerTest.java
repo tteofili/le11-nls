@@ -1,6 +1,6 @@
-package com.github.sedtum.lucene;
+package com.github.le11.nls.lucene;
 
-import com.github.sedtum.lucene.payloads.UIMAPayloadsAnalyzer;
+import com.github.le11.nls.lucene.payloads.UIMAPayloadsAnalyzer;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;

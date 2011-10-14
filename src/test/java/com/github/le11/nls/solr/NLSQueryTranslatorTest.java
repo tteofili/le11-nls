@@ -1,4 +1,4 @@
-package com.github.sedtum.solr;
+package com.github.le11.nls.solr;
 
 import org.junit.Test;
 

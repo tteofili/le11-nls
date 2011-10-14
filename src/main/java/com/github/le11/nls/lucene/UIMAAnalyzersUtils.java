@@ -1,4 +1,4 @@
-package com.github.sedtum.lucene;
+package com.github.le11.nls.lucene;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.uima.UIMAFramework;

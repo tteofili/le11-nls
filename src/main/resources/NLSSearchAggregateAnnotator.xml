@@ -22,6 +22,9 @@
     <delegateAnalysisEngine key="AlchemyAPIAggregateAnnotator">
       <import location="AlchemyAPIAggregateAnnotator.xml"/>
     </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="OpenNlpTextAnalyzer">
+      <import location="OpenNlpTextAnalyzer.xml"/>
+    </delegateAnalysisEngine>
   </delegateAnalysisEngineSpecifiers>
   <analysisEngineMetaData>
     <name>NLSSearchAggregateAnnotator</name>
@@ -33,7 +36,7 @@
     <flowConstraints>
       <fixedFlow>
         <node>HmmTaggerAggregate</node>
-        <node>AlchemyAPIAggregateAnnotator</node>
+        <node>OpenNlpTextAnalyzer</node>
       </fixedFlow>
     </flowConstraints>
     <typePriorities/>

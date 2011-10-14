@@ -1,4 +1,4 @@
-package com.github.sedtum.lucene;
+package com.github.le11.nls.lucene;
 
 import org.apache.lucene.analysis.Tokenizer;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;

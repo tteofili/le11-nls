@@ -1,6 +1,6 @@
-package com.github.sedtum.solr;
+package com.github.le11.nls.solr;
 
-import com.github.sedtum.lucene.TypeAwareSynonymFilter;
+import com.github.le11.nls.lucene.TypeAwareSynonymFilter;
 import org.apache.lucene.analysis.*;
 import org.apache.lucene.analysis.synonym.SolrSynonymParser;
 import org.apache.lucene.analysis.synonym.SynonymMap;

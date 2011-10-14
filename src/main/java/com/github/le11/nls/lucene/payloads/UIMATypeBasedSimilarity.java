@@ -1,6 +1,6 @@
-package com.github.sedtum.lucene.payloads;
+package com.github.le11.nls.lucene.payloads;
 
-import com.github.sedtum.lucene.TypeScoreMap;
+import com.github.le11.nls.lucene.TypeScoreMap;
 import org.apache.lucene.search.DefaultSimilarity;
 
 

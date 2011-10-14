@@ -1,4 +1,4 @@
-package com.github.sedtum.lucene;
+package com.github.le11.nls.lucene;
 
 import com.github.sedtum.lucene.payloads.UIMAPayloadsAnalyzer;
 import com.github.sedtum.lucene.payloads.UIMATypeBasedSimilarity;

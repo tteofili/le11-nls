@@ -1,6 +1,6 @@
-package com.github.sedtum.solr;
+package com.github.le11.nls.solr;
 
-import com.github.sedtum.lucene.UIMAAnalyzersUtils;
+import com.github.le11.nls.lucene.UIMAAnalyzersUtils;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.cas.CAS;
 import org.apache.uima.resource.ResourceInitializationException;
@@ -17,7 +17,7 @@ import java.util.Collection;
 import static org.junit.Assert.assertTrue;
 
 /**
- * Testcase for {@link com.github.sedtum.solr.NLSQueryAnalyzer}
+ * Testcase for {@link com.github.le11.nls.solr.NLSQueryAnalyzer}
  *
  * @author tommaso
  * @version $Id$

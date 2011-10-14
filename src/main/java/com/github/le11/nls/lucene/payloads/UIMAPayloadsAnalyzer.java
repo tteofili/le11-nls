@@ -1,6 +1,6 @@
-package com.github.sedtum.lucene.payloads;
+package com.github.le11.nls.lucene.payloads;
 
-import com.github.sedtum.lucene.UIMATypeAwareTokenizer;
+import com.github.le11.nls.lucene.UIMATypeAwareTokenizer;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.analysis.payloads.TypeAsPayloadTokenFilter;

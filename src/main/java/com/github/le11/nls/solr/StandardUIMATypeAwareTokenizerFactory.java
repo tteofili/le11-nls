@@ -1,6 +1,6 @@
-package com.github.sedtum.solr;
+package com.github.le11.nls.solr;
 
-import com.github.sedtum.lucene.UIMATypeAwareTokenizer;
+import com.github.le11.nls.lucene.UIMATypeAwareTokenizer;
 import org.apache.lucene.analysis.Tokenizer;
 import org.apache.solr.analysis.BaseTokenizerFactory;
 

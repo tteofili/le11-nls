@@ -1,6 +1,6 @@
-package com.github.sedtum.solr;
+package com.github.le11.nls.solr;
 
-import com.github.sedtum.lucene.TypeAwareStopFilter;
+import com.github.le11.nls.lucene.TypeAwareStopFilter;
 import org.apache.lucene.analysis.CharArraySet;
 import org.apache.lucene.analysis.StopAnalyzer;
 import org.apache.lucene.analysis.TokenStream;
