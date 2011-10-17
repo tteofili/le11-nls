@@ -6,6 +6,8 @@ import org.apache.lucene.search.DefaultSimilarity;
 
 public class UIMATypeBasedSimilarity extends DefaultSimilarity {
 
+  private static final long serialVersionUID = 1L;
+
   private TypeScoreMap scoreMap;
 
   public UIMATypeBasedSimilarity() {

@@ -16,9 +16,15 @@
   </frameworkImplementation>
   <primitive>false</primitive>
   <delegateAnalysisEngineSpecifiers>
-    <delegateAnalysisEngine key="OpenNlpTextAnalyzer">
-      <import location="OpenNlpTextAnalyzer.xml"/>
+    <delegateAnalysisEngine key="HmmTaggerAggregate">
+      <import location="HmmTaggerAggregate.xml"/>
     </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="AlchemyAPIAggregateAnnotator">
+      <import location="AlchemyAPIAggregateAnnotator.xml"/>
+    </delegateAnalysisEngine>
+    <!--<delegateAnalysisEngine key="OpenNlpTextAnalyzer">-->
+    <!--<import location="OpenNlpTextAnalyzer.xml"/>-->
+    <!--</delegateAnalysisEngine>-->
   </delegateAnalysisEngineSpecifiers>
   <analysisEngineMetaData>
     <name>NLSSearchAggregateAnnotator</name>
@@ -29,7 +35,9 @@
     <configurationParameterSettings/>
     <flowConstraints>
       <fixedFlow>
-        <node>OpenNlpTextAnalyzer</node>
+        <node>HmmTaggerAggregate</node>
+        <node>AlchemyAPIAggregateAnnotator</node>
+        <!--<node>OpenNlpTextAnalyzer</node>-->
       </fixedFlow>
     </flowConstraints>
     <typePriorities/>
@@ -37,7 +45,7 @@
     <capabilities/>
     <operationalProperties>
       <modifiesCas>true</modifiesCas>
-      <multipleDeploymentAllowed>false</multipleDeploymentAllowed>
+      <multipleDeploymentAllowed>true</multipleDeploymentAllowed>
       <outputsNewCASes>false</outputsNewCASes>
     </operationalProperties>
   </analysisEngineMetaData>

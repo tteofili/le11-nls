@@ -38,7 +38,7 @@ public class NLSQueryValidatorTest {
 
   @Test
   public void testNLSQuery() {
-    NLSQueryAnalyzer queryAnalyzer = new NLSQueryAnalyzer(cas, query);
+    NLSQueryAnalyzer queryAnalyzer = new NLSQueryAnalyzer(cas);
     assertTrue("'" + query + "'" + FAILSTRING, queryAnalyzer.isNLSQuery());
   }
 
@@ -62,7 +62,7 @@ public class NLSQueryValidatorTest {
 
   private static CAS posTagQuery(String query) throws IOException, InvalidXMLException,
           ResourceInitializationException, AnalysisEngineProcessException {
-    return UIMAAnalyzersUtils.analyzeInput(new StringReader(query),
+    return UIMAAnalyzersUtils.getInstance().analyzeInput(new StringReader(query),
             "/HmmTaggerAggregate.xml");
   }
 

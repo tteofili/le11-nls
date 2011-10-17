@@ -58,14 +58,14 @@ public class SolrNLSQParserPlugin extends DisMaxQParserPlugin {
         CAS cas;
         // analyze the query
         try {
-//        cas = UIMAAnalyzersUtils.analyzeInput(new StringReader(qstr), String.valueOf(localParams.get("descriptor")));
-          cas = UIMAAnalyzersUtils.analyzeInput(new StringReader(qstr), "/NLSSearchAggregateAnnotator.xml");
+//        cas = UIMAAnalyzersUtils.getInstance().analyzeInput(new StringReader(qstr), String.valueOf(localParams.get("descriptor")));
+          cas = UIMAAnalyzersUtils.getInstance().analyzeAsynchronously(new StringReader(qstr), "OpenNLPQueue");
         } catch (Exception e) {
           e.printStackTrace();
           return super.parse();
         }
 
-        NLSQueryAnalyzer nlsQueryAnalyzer = new NLSQueryAnalyzer(cas, qstr);
+        NLSQueryAnalyzer nlsQueryAnalyzer = new NLSQueryAnalyzer(cas);
         if (nlsQueryAnalyzer.isNLSQuery()) {
           explicitNLSQuery = new NLSQueryTranslator().createNLSExplicitQueryString(qstr, nlsQueryAnalyzer);
           cache.put(qstr, explicitNLSQuery);

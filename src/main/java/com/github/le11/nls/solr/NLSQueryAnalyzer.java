@@ -16,23 +16,21 @@ import java.util.Map;
  */
 public class NLSQueryAnalyzer {
 
+  @SuppressWarnings("unused")
   private Float threshold;
   private CAS cas;
-  private String qstring;
   TypeScoreMap scoreMap;
   private final String[] entitiesFSTypes = new String[]{"org.apache.uima.alchemy.ts.entity.BaseEntity"};
-  private final String[] entitiesAnnTypes = new String[]{"opennlp.uima.Person", "opennlp.uima.Location"};
+  private final String[] entitiesAnnTypes = new String[]{"opennlp.uima.Person", "opennlp.uima.Location", "opennlp.uima.Organization"};
 
-  public NLSQueryAnalyzer(CAS cas, String qstring) {
+  public NLSQueryAnalyzer(CAS cas) {
     this.cas = cas;
-    this.qstring = qstring;
     this.threshold = 0f;
     this.scoreMap = new TypeScoreMap();
   }
 
-  public NLSQueryAnalyzer(CAS cas, String qstring, Float threshold) {
+  public NLSQueryAnalyzer(CAS cas, Float threshold) {
     this.cas = cas;
-    this.qstring = qstring;
     this.threshold = threshold;
     this.scoreMap = new TypeScoreMap();
   }

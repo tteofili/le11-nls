@@ -55,8 +55,18 @@
     <!-- UIMA stuff -->
     <dependency>
       <groupId>org.apache.uima</groupId>
-      <artifactId>uimaj-core</artifactId>
+      <artifactId>uimaj-as-core</artifactId>
       <version>2.3.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.uima</groupId>
+      <artifactId>uimaj-as-activemq</artifactId>
+      <version>2.3.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.activemq</groupId>
+      <artifactId>activemq-all</artifactId>
+      <version>5.4.1</version>
     </dependency>
     <dependency>
       <groupId>org.apache.uima</groupId>

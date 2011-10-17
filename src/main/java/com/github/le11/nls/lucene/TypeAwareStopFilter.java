@@ -90,7 +90,7 @@ public final class TypeAwareStopFilter extends FilteringTokenFilter {
    * @param ignoreCase   if true, all words are lower cased first
    */
   public TypeAwareStopFilter(Version matchVersion, TokenStream input, Set<?> stopWords, boolean ignoreCase) {
-    this(matchVersion, matchVersion.onOrAfter(Version.LUCENE_29), input, stopWords, ignoreCase);
+    this(matchVersion, matchVersion.onOrAfter(Version.LUCENE_34), input, stopWords, ignoreCase);
   }
 
   /*

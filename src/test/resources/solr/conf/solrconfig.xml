@@ -72,7 +72,7 @@
        files in that directory which completely match the regex
        (anchored on both ends) will be included.
     -->
-  <lib dir="../../dist/" regex="apache-solr-cell-\d.*\.jar"/>
+  <lib dir="../../../dist/"/>
   <lib dir="../../dist/" regex="apache-solr-clustering-\d.*\.jar"/>
   <lib dir="../../dist/" regex="apache-solr-dataimporthandler-\d.*\.jar"/>
 
@@ -865,7 +865,7 @@
     <processor class="org.apache.solr.uima.processor.UIMAUpdateRequestProcessorFactory">
       <lst name="uimaConfig">
         <lst name="runtimeParameters"/>
-        <str name="analysisEngine">/NLSSearchAggregateAnnotator.xml</str>
+        <str name="analysisEngine">/NLSIndexAggregateAnnotator.xml</str>
         <bool name="ignoreErrors">true</bool>
         <lst name="analyzeFields">
           <bool name="merge">false</bool>
@@ -875,30 +875,37 @@
         </lst>
         <lst name="fieldMappings">
           <lst name="type">
-            <str name="name">opennlp.uima.Sentence</str>
+            <str name="name">org.apache.uima.SentenceAnnotation</str>
             <lst name="mapping">
               <str name="feature">coveredText</str>
               <str name="field">sentence</str>
             </lst>
           </lst>
           <lst name="type">
-            <str name="name">opennlp.uima.Person</str>
+            <str name="name">org.apache.uima.alchemy.ts.entity.Person</str>
             <lst name="mapping">
-              <str name="feature">coveredText</str>
+              <str name="feature">text</str>
               <str name="field">Person_sm</str>
             </lst>
           </lst>
           <lst name="type">
-            <str name="name">opennlp.uima.Location</str>
+            <str name="name">org.apache.uima.alchemy.ts.entity.City</str>
             <lst name="mapping">
-              <str name="feature">coveredText</str>
+              <str name="feature">text</str>
               <str name="field">Location_sm</str>
             </lst>
           </lst>
           <lst name="type">
-            <str name="name">opennlp.uima.Organization</str>
+            <str name="name">org.apache.uima.alchemy.ts.entity.Organization</str>
             <lst name="mapping">
-              <str name="feature">coveredText</str>
+              <str name="feature">text</str>
+              <str name="field">Organization_sm</str>
+            </lst>
+          </lst>
+          <lst name="type">
+            <str name="name">org.apache.uima.alchemy.ts.entity.Company</str>
+            <lst name="mapping">
+              <str name="feature">text</str>
               <str name="field">Organization_sm</str>
             </lst>
           </lst>
@@ -909,14 +916,14 @@
               <str name="field">sentiment</str>
             </lst>
           </lst>
-          <lst name="type">
-            <str name="name">org.apache.uima.alchemy.ts.entity.BaseEntity</str>
-            <lst name="mapping">
-              <str name="feature">text</str>
-              <str name="fieldNameFeature">subType</str>
-              <str name="dynamicField">*_sm</str>
-            </lst>
-          </lst>
+          <!--<lst name="type">-->
+          <!--<str name="name">org.apache.uima.alchemy.ts.entity.BaseEntity</str>-->
+          <!--<lst name="mapping">-->
+          <!--<str name="feature">text</str>-->
+          <!--<str name="fieldNameFeature">subType</str>-->
+          <!--<str name="dynamicField">*_sm</str>-->
+          <!--</lst>-->
+          <!--</lst>-->
           <lst name="type">
             <str name="name">org.apache.uima.alchemy.ts.concept.ConceptFS</str>
             <lst name="mapping">

@@ -39,7 +39,7 @@ public final class UIMABaseTokenizer extends Tokenizer {
 
   private void analyzeText(Reader input, String descriptorPath) throws InvalidXMLException,
           IOException, ResourceInitializationException, AnalysisEngineProcessException {
-    CAS cas = UIMAAnalyzersUtils.analyzeInput(input, descriptorPath);
+    CAS cas = UIMAAnalyzersUtils.getInstance().analyzeInput(input, descriptorPath);
     Type tokenType = cas.getTypeSystem().getType(this.tokenTypeString);
     iterator = cas.getAnnotationIndex(tokenType).iterator();
   }
