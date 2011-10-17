@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<analysisEngineDeploymentDescription xmlns="http://uima.apache.org/resourceSpecifier">
+  <name>SampleDeploymentDescriptor</name>
+  <description></description>
+  <version>1.0</version>
+  <vendor></vendor>
+  <deployment protocol="jms" provider="activemq">
+    <casPool numberOfCASes="1" initialFsHeapSize="2000000"/>
+    <service>
+      <inputQueue endpoint="OpenNLPQueue" brokerURL="${defaultBrokerURL}" prefetch="0"/>
+      <topDescriptor>
+        <import name="NLSOpenNLPAggregateAnnotator"/>
+      </topDescriptor>
+      <analysisEngine async="true">
+        <scaleout numberOfInstances="1"/>
+        <delegates>
+          <analysisEngine key="OpenNlpTextAnalyzer" async="false">
+            <scaleout numberOfInstances="1"/>
+            <asyncAggregateErrorConfiguration>
+              <getMetadataErrors maxRetries="0" timeout="0" errorAction="terminate"/>
+              <processCasErrors maxRetries="0" timeout="0" continueOnRetryFailure="false" thresholdCount="0"
+                                thresholdWindow="0" thresholdAction="terminate"/>
+              <collectionProcessCompleteErrors timeout="0" additionalErrorAction="terminate"/>
+            </asyncAggregateErrorConfiguration>
+          </analysisEngine>
+        </delegates>
+        <asyncPrimitiveErrorConfiguration>
+          <processCasErrors thresholdCount="0" thresholdWindow="0" thresholdAction="terminate"/>
+          <collectionProcessCompleteErrors timeout="0" additionalErrorAction="terminate"/>
+        </asyncPrimitiveErrorConfiguration>
+      </analysisEngine>
+    </service>
+  </deployment>
+</analysisEngineDeploymentDescription>
