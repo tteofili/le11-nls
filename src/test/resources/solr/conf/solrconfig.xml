@@ -937,6 +937,59 @@
     <processor class="solr.RunUpdateProcessorFactory"/>
   </updateRequestProcessorChain>
 
+  <requestHandler name="/update/uima-as" class="solr.XmlUpdateRequestHandler">
+    <lst name="defaults">
+      <str name="update.chain">uima-as</str>
+    </lst>
+  </requestHandler>
+
+  <updateRequestProcessorChain name="uima-as">
+    <processor class="com.github.le11.nls.solr.UIMAAsyncUpdateRequestProcessorFactoryy">
+      <lst name="uimaConfig">
+        <lst name="runtimeParameters"/>
+        <str name="analysisEngine">OpenNLPQueue</str>
+        <bool name="ignoreErrors">true</bool>
+        <lst name="analyzeFields">
+          <bool name="merge">false</bool>
+          <arr name="fields">
+            <str>text</str>
+          </arr>
+        </lst>
+        <lst name="fieldMappings">
+          <lst name="type">
+            <str name="name">opennlp.uima.Sentence</str>
+            <lst name="mapping">
+              <str name="feature">coveredText</str>
+              <str name="field">sentence</str>
+            </lst>
+          </lst>
+          <lst name="type">
+            <str name="name">opennlp.uima.Person</str>
+            <lst name="mapping">
+              <str name="feature">text</str>
+              <str name="field">Person_sm</str>
+            </lst>
+          </lst>
+          <lst name="type">
+            <str name="name">opennlp.uima.Location</str>
+            <lst name="mapping">
+              <str name="feature">text</str>
+              <str name="field">Location_sm</str>
+            </lst>
+          </lst>
+          <lst name="type">
+            <str name="name">opennlp.uima.Organization</str>
+            <lst name="mapping">
+              <str name="feature">text</str>
+              <str name="field">Organization_sm</str>
+            </lst>
+          </lst>
+        </lst>
+      </lst>
+    </processor>
+    <processor class="solr.RunUpdateProcessorFactory"/>
+  </updateRequestProcessorChain>
+
 
   <!-- Binary Update Request Handler
        http://wiki.apache.org/solr/javabin

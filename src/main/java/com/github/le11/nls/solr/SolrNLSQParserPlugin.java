@@ -16,7 +16,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * derived from edismax
  * analyze user query
  * identify keyword vs nl queries (optional)
  * high boost to concept field
@@ -58,7 +57,6 @@ public class SolrNLSQParserPlugin extends DisMaxQParserPlugin {
         CAS cas;
         // analyze the query
         try {
-//        cas = UIMAAnalyzersUtils.getInstance().analyzeInput(new StringReader(qstr), String.valueOf(localParams.get("descriptor")));
           cas = UIMAAnalyzersUtils.getInstance().analyzeAsynchronously(new StringReader(qstr), "OpenNLPQueue");
         } catch (Exception e) {
           e.printStackTrace();

@@ -23,7 +23,11 @@
     <dependency>
       <groupId>org.apache.solr</groupId>
       <artifactId>solr-uima</artifactId>
-      <version>3.4.0</version>
+      <version>3.4-SNAPSHOT</version>
+      <scope>system</scope>
+      <systemPath>
+        /Users/tommasoteofili/.m2/repository/org/apache/solr/solr-uima/3.4-SNAPSHOT/solr-uima-3.4-20111017.142111-1.jar
+      </systemPath>
       <exclusions>
         <exclusion>
           <groupId>org.apache.solr</groupId>
