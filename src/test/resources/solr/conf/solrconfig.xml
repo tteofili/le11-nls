@@ -944,7 +944,7 @@
   </requestHandler>
 
   <updateRequestProcessorChain name="uima-as">
-    <processor class="com.github.le11.nls.solr.UIMAAsyncUpdateRequestProcessorFactoryy">
+    <processor class="com.github.le11.nls.solr.UIMAAsyncUpdateRequestProcessorFactory">
       <lst name="uimaConfig">
         <lst name="runtimeParameters"/>
         <str name="analysisEngine">OpenNLPQueue</str>

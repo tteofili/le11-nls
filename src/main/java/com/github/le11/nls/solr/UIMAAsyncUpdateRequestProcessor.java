@@ -7,7 +7,6 @@ import org.apache.solr.core.SolrCore;
 import org.apache.solr.schema.SchemaField;
 import org.apache.solr.uima.processor.SolrUIMAConfiguration;
 import org.apache.solr.uima.processor.UIMAToSolrMapper;
-import org.apache.solr.uima.processor.UIMAUpdateRequestProcessor;
 import org.apache.solr.update.AddUpdateCommand;
 import org.apache.solr.update.processor.UpdateRequestProcessor;
 import org.apache.uima.jcas.JCas;
@@ -20,10 +19,10 @@ import java.util.Map;
  * @author tommaso
  * @version $Id$
  */
-public class UIMAAsyncUpdateRequestProcessor extends UIMAUpdateRequestProcessor {
+public class UIMAAsyncUpdateRequestProcessor extends UpdateRequestProcessor {
 
   public UIMAAsyncUpdateRequestProcessor(UpdateRequestProcessor next, SolrCore solrCore, SolrUIMAConfiguration config) {
-    super(next, solrCore, config);
+    super(next);
     initialize(solrCore, config);
   }
 
