@@ -52,7 +52,6 @@ public class UIMABasePayloadsFilter extends TokenFilter {
   }
 
   public final boolean incrementToken() throws IOException {
-    // TODO implement this
     if (iterator == null) {
       try {
         analyzeText();
@@ -60,26 +59,8 @@ public class UIMABasePayloadsFilter extends TokenFilter {
         throw new IOException(e);
       }
     }
-
-    if (input.incrementToken()) {
-      if (iterator.hasNext()) {
-        AnnotationFS annotationFS = iterator.next();
-//        if (featurePath.getStringValue(annotationFS)) {
-//
-//        }
-      }
-    }
-
-
-    if (input.incrementToken()) {
-      if (termAttr.buffer().toString().equals("warning")) {
-        payloadAttr.setPayload(null);
-      } else {
-        payloadAttr.setPayload(null);
-      }
-      return true;
-    } else
-      return false;
+    // TODO implement this
+    return false;
   }
 
 }
