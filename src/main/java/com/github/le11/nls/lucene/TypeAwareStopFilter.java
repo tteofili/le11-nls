@@ -93,6 +93,12 @@ public final class TypeAwareStopFilter extends FilteringTokenFilter {
     this(matchVersion, matchVersion.onOrAfter(Version.LUCENE_34), input, stopWords, ignoreCase);
   }
 
+  public TypeAwareStopFilter(Version matchVersion, TokenStream input, Set<?> stopWords, boolean ignoreCase, List<String> blockedTypes) {
+    this(matchVersion, matchVersion.onOrAfter(Version.LUCENE_34), input, stopWords, ignoreCase);
+    this.blockedTypes = blockedTypes;
+    Collections.sort(this.blockedTypes);
+  }
+
   /*
    * convenience ctor to enable deprecated ctors to set posInc explicitly
    */
@@ -250,7 +256,7 @@ public final class TypeAwareStopFilter extends FilteringTokenFilter {
    */
   @Override
   protected boolean accept() throws IOException {
-    return !stopWords.contains(termAtt.buffer(), 0, termAtt.length()) && Collections.binarySearch(blockedTypes, typeAtt.type()) <= 0;
+    return !stopWords.contains(termAtt.buffer(), 0, termAtt.length()) && Collections.binarySearch(blockedTypes, typeAtt.type()) < 0;
   }
 
   /**
