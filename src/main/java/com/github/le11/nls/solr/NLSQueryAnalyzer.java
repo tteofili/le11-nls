@@ -36,7 +36,7 @@ public class NLSQueryAnalyzer {
   @SuppressWarnings("unused")
   private Float threshold;
   private CAS cas;
-  TypeScoreMap scoreMap;
+  private TypeScoreMap scoreMap;
   private final String[] entitiesFSTypes = new String[]{"org.apache.uima.alchemy.ts.entity.BaseEntity"};
   private final String[] entitiesAnnTypes = new String[]{"opennlp.uima.Person", "opennlp.uima.Location", "opennlp.uima.Organization"};
 
@@ -53,9 +53,8 @@ public class NLSQueryAnalyzer {
   }
 
 
-  public Boolean isNLSQuery() {
-    // TODO implement this
-    return true;
+  public Boolean isNLSQuery(String qstr) {
+    return !qstr.contains(":"); // TODO : this check should be much improved
   }
 
   public String extractPlaceQuery() {

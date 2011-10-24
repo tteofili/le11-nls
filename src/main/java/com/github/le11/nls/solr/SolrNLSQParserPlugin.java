@@ -81,7 +81,7 @@ public class SolrNLSQParserPlugin extends DisMaxQParserPlugin {
         }
 
         NLSQueryAnalyzer nlsQueryAnalyzer = new NLSQueryAnalyzer(cas);
-        if (nlsQueryAnalyzer.isNLSQuery()) {
+        if (nlsQueryAnalyzer.isNLSQuery(qstr)) {
           explicitNLSQuery = new NLSQueryTranslator().createNLSExplicitQueryString(qstr, nlsQueryAnalyzer);
           cache.put(qstr, explicitNLSQuery);
           return new LuceneQParserPlugin().createParser(explicitNLSQuery, localParams, params, req).parse();
