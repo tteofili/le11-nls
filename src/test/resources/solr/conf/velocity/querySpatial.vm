@@ -21,7 +21,7 @@
                                                                 value="#if($dist != '')${dist}#{else}10#end"/></span>
 <input type="hidden" name="sfield" value="store"/>
 <input type="hidden" id="spatialFQ" name="fq" value=""/>
-<input type="hidden" name="queryOpts" value="spatial"/>        
+<input type="hidden" name="queryOpts" value="spatial"/>
 </div>
 <script type="text/javascript">
   $('#query-form').submit(function() {

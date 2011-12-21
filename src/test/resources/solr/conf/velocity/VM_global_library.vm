@@ -10,7 +10,7 @@
 
 #macro(debug)#if($request.params.get('debugQuery'))&debugQuery=true#end#end
 
-#macro(boostPrice)#if($request.params.get('bf') == 'price')&bf=price#end#end        
+#macro(boostPrice)#if($request.params.get('bf') == 'price')&bf=price#end#end
 
 #macro(annotate)#if($request.params.get('annotateBrowse'))&annotateBrowse=true#end#end
 
@@ -22,7 +22,7 @@
 
 #macro(lensNoQ)?#if($request.params.getParams('fq') and $list.size($request.params.getParams('fq')) > 0)&#fqs($request.params.getParams('fq'))#end#debug#boostPrice#annotate#spatial#qOpts#end
 #macro(lens)#lensNoQ#q#end
-        
+
 
 #macro(url_for_lens)#{url_for_home}#lens#end
 
@@ -78,7 +78,7 @@
       #end
     #end
     </ul>
-  #end      
+  #end
 #end
 
 #macro(display_facet_range_date $field, $display, $fieldName)
@@ -107,7 +107,7 @@
     #end
     </ul>
 #end
-        
+
 
 
 #macro(display_facet_range $field, $display, $fieldName, $start, $end, $gap, $before, $after)
@@ -181,4 +181,4 @@
       $v
     #end
   #end
-#end  
+#end
