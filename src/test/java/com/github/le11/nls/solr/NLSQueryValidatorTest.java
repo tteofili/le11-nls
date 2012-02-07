@@ -56,7 +56,7 @@ public class NLSQueryValidatorTest {
   @Test
   public void testNLSQuery() {
     NLSQueryAnalyzer queryAnalyzer = new NLSQueryAnalyzer(cas);
-    assertTrue("'" + query + "'" + FAILSTRING, queryAnalyzer.isNLSQuery());
+    assertTrue("'" + query + "'" + FAILSTRING, queryAnalyzer.isNLSQuery(query));
   }
 
   @Parameterized.Parameters

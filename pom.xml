@@ -23,11 +23,7 @@
     <dependency>
       <groupId>org.apache.solr</groupId>
       <artifactId>solr-uima</artifactId>
-      <version>3.4-SNAPSHOT</version>
-      <scope>system</scope>
-      <systemPath>
-        /Users/tommasoteofili/.m2/repository/org/apache/solr/solr-uima/3.4-SNAPSHOT/solr-uima-3.4-20111017.142111-1.jar
-      </systemPath>
+      <version>3.4.0</version>
       <exclusions>
         <exclusion>
           <groupId>org.apache.solr</groupId>
@@ -96,17 +92,6 @@
       <groupId>org.apache.uima</groupId>
       <artifactId>Tagger</artifactId>
       <version>2.3.1</version>
-    </dependency>
-    <!-- Mahout stuff -->
-    <dependency>
-      <groupId>org.apache.mahout</groupId>
-      <artifactId>mahout-core</artifactId>
-      <version>0.5</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.mahout</groupId>
-      <artifactId>mahout-utils</artifactId>
-      <version>0.5</version>
     </dependency>
     <!-- OpenNLP stuff -->
     <dependency>

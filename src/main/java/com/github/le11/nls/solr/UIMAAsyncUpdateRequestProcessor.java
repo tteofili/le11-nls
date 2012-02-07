@@ -71,11 +71,9 @@ public class UIMAAsyncUpdateRequestProcessor extends UpdateRequestProcessor {
 
           UIMAToSolrMapper uimaToSolrMapper = new UIMAToSolrMapper(solrInputDocument, jcas);
           /* get field mapping from config */
-          Map<String, Map<String, SolrUIMAConfiguration.MapField>> typesAndFeaturesFieldsMap = solrUIMAConfiguration
-                  .getTypesFeaturesFieldsMapping();
           /* map type features on fields */
-          for (String typeFQN : typesAndFeaturesFieldsMap.keySet()) {
-            uimaToSolrMapper.map(typeFQN, typesAndFeaturesFieldsMap.get(typeFQN));
+          for (String typeFQN : solrUIMAConfiguration.getTypesFeaturesFieldsMapping().keySet()) {
+            uimaToSolrMapper.map(typeFQN, solrUIMAConfiguration.getTypesFeaturesFieldsMapping().get(typeFQN));
           }
         }
       }

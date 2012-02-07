@@ -28,8 +28,6 @@ public class NLSQueryTranslator {
 
   public String createNLSExplicitQueryString(String qstr, NLSQueryAnalyzer nlsQueryAnalyzer) {
 
-    // TODO : create a NLS queries cache
-
     StringBuilder nlsQueryBuilder = new StringBuilder();
 
     // TODO give higher boosts based on PoS to nlsQstr terms
@@ -76,7 +74,7 @@ public class NLSQueryTranslator {
       conceptQueryStringBuilder.append("(");
       for (String concept : concepts) {
 //          conceptQueryStringBuilder.append(localParams.get("conceptfield")).append(":").append(concept);
-        conceptQueryStringBuilder.append("concept").append(":").append(concept).append("^1000 ");
+        conceptQueryStringBuilder.append("concept").append(":").append(concept).append("^100 ");
       }
       conceptQueryStringBuilder.append(") ");
       nlsQueryBuilder.append(" ").append(conceptQueryStringBuilder.toString());

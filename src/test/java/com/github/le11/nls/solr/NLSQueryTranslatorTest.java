@@ -36,7 +36,7 @@ public class NLSQueryTranslatorTest {
     try {
       NLSQueryTranslator nlsQueryTranslator = new NLSQueryTranslator();
       NLSQueryAnalyzer nlsQueryAnalyzer = mock(NLSQueryAnalyzer.class);
-      when(nlsQueryAnalyzer.isNLSQuery()).thenReturn(true);
+      when(nlsQueryAnalyzer.isNLSQuery("")).thenReturn(true);
       when(nlsQueryAnalyzer.extractConcepts()).thenReturn(new String[]{"science"});
       for (String nlsQuery : testQueries) {
         when(nlsQueryAnalyzer.expandBoosts()).thenReturn(nlsQuery + "^5.0");
