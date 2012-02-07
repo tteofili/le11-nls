@@ -19,4 +19,4 @@
 
 <span #annTitle("Click the link to demonstrate various Solr capabilities")><span>Examples: </span><span class="tab">#if($queryOpts && $queryOpts != "")<a href="#url_for_home">Simple</a>#{else}Simple#end</span>
 <span class="tab">#if($queryOpts == "spatial")Spatial#else<a href="#url_for_home?&queryOpts=spatial">Spatial</a>#end</span>
-<hr/>        
+<hr/>

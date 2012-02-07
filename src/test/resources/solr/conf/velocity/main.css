@@ -1,6 +1,6 @@
 #admin{
   text-align: right;
-  vertical-align: top; 
+  vertical-align: top;
 }
 
 #head{
@@ -34,7 +34,7 @@ a {
   width: 185px;
   padding: 5px;
   top: -20px;
-  position: relative;  
+  position: relative;
 }
 
 .navigators h2 {
@@ -109,11 +109,11 @@ a {
 }
 
 .query-box {
-  
+
 }
 
 .query-boost {
-  
+
   top: 10px;
   left: 50px;
   position: relative;
@@ -123,7 +123,7 @@ a {
 .query-box .inputs{
   left: 180px;
   position: relative;
-  
+
 }
 
 #logo {
@@ -157,13 +157,13 @@ a {
 }
 
 .mlt{
-  
+
 }
 
 .map{
   float: right;
   position: relative;
-  top: -25px;  
+  top: -25px;
 }
 
 .result-document:nth-child(2n+1) {

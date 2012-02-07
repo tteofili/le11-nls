@@ -24,6 +24,6 @@
           <li><a href="#url_for_home?q=id:$cluDoc">$cluDoc</a></li>
         #end
         </ol>
-        
-    
+
+
 #end
